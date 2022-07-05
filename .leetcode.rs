@@ -16,5 +16,8 @@ pub mod _27;
 #[path = "33.search-in-rotated-sorted-array.rs"]
 pub mod _33;
 
+#[path = "35.search-insert-position.rs"]
+pub mod _35;
+
 #[path = "704.binary-search.rs"]
 pub mod _704;
