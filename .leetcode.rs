@@ -13,6 +13,9 @@ pub mod _13;
 #[path = "27.remove-element.rs"]
 pub mod _27;
 
+#[path = "29.divide-two-integers.rs"]
+pub mod _29;
+
 #[path = "33.search-in-rotated-sorted-array.rs"]
 pub mod _33;
 
