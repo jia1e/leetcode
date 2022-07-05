@@ -16,6 +16,9 @@ pub mod _27;
 #[path = "33.search-in-rotated-sorted-array.rs"]
 pub mod _33;
 
+#[path = "34.find-first-and-last-position-of-element-in-sorted-array.rs"]
+pub mod _34;
+
 #[path = "35.search-insert-position.rs"]
 pub mod _35;
 

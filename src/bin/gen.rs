@@ -6,7 +6,7 @@ use std::{
 
 fn main() {
     let dir = current_dir().unwrap();
-    let mut files: Vec<_> = read_dir(dir)
+    let mut files = read_dir(dir)
         .unwrap()
         .filter_map(|entry| match entry {
             Ok(entry) => {
@@ -27,7 +27,7 @@ fn main() {
             }
             _ => None,
         })
-        .collect();
+        .collect::<Vec<_>>();
     files.sort_by(|(a, _), (b, _)| a.cmp(b));
     let segments: Vec<_> = files
         .iter()
@@ -37,7 +37,7 @@ fn main() {
 }
 
 fn is_leetcode_file(entry: &DirEntry) -> bool {
-    let re = Regex::new(r"^\d+\.\w+(\-\w+)+\.rs$").unwrap();
+    let re = Regex::new(r"^\d+\.\w+(\-\w+)*\.rs$").unwrap();
     return entry.file_type().unwrap().is_file()
         && re.is_match(entry.file_name().to_str().unwrap());
 }
