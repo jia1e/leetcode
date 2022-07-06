@@ -10,4 +10,4 @@ regex = "1"
 
 [lib]
 name = "leetcode"
-path = ".leetcode.rs"
+path = "leetcode.rs"

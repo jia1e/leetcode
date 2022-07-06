@@ -1,7 +1,7 @@
 use regex::Regex;
 use std::{
     env::current_dir,
-    fs::{self, read_dir, DirEntry},
+    fs::{self, read_dir},
 };
 
 fn main() {
@@ -10,34 +10,40 @@ fn main() {
         .unwrap()
         .filter_map(|entry| match entry {
             Ok(entry) => {
-                if is_leetcode_file(&entry) {
-                    let number: i32 = Regex::new(r"\d+")
-                        .unwrap()
-                        .captures(entry.file_name().to_str().unwrap())
-                        .unwrap()
-                        .get(0)
-                        .unwrap()
-                        .as_str()
-                        .parse()
-                        .unwrap();
-                    Some((number, entry.file_name()))
+                if entry.file_type().unwrap().is_file() {
+                    let re = Regex::new(r"^(\d+)\.(\w+(\-\w+)*)\.rs$").unwrap();
+                    let name = entry.file_name();
+                    if let Some(captures) = re.captures(name.to_str().unwrap()) {
+                        match (captures.get(0), captures.get(1), captures.get(2)) {
+                            (Some(path), Some(n), Some(title)) => Some((
+                                path.as_str().to_string(),
+                                n.as_str().parse().unwrap(),
+                                // title.as_str().replace("-", "_"),
+                                title.as_str().to_string(),
+                            )),
+                            _ => None,
+                        }
+                    } else {
+                        None
+                    }
                 } else {
                     None
                 }
             }
             _ => None,
         })
-        .collect::<Vec<_>>();
-    files.sort_by(|(a, _), (b, _)| a.cmp(b));
+        .collect::<Vec<(_, i32, _)>>();
+    files.sort_by(|(_, a, _), (_, b, _)| a.cmp(b));
     let segments: Vec<_> = files
         .iter()
-        .map(|(n, name)| format!("#[path = \"{}\"]\npub mod _{};", name.to_str().unwrap(), n))
+        .map(|(path, n, title)| {
+            format!(
+                r###"/// [{title}](https://leetcode.com/problems/{title})
+#[path = "{path}"]
+pub mod p{n};
+"###
+            )
+        })
         .collect();
-    fs::write(".leetcode.rs", segments.join("\n\n")).expect("unable to generate .leetcode.rs");
-}
-
-fn is_leetcode_file(entry: &DirEntry) -> bool {
-    let re = Regex::new(r"^\d+\.\w+(\-\w+)*\.rs$").unwrap();
-    return entry.file_type().unwrap().is_file()
-        && re.is_match(entry.file_name().to_str().unwrap());
+    fs::write("leetcode.rs", segments.join("\n")).expect("unable to generate leetcode.rs");
 }
