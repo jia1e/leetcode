@@ -34,6 +34,10 @@ pub mod p34;
 #[path = "35.search-insert-position.rs"]
 pub mod p35;
 
+/// [first-bad-version](https://leetcode.com/problems/first-bad-version)
+#[path = "278.first-bad-version.rs"]
+pub mod p278;
+
 /// [binary-search](https://leetcode.com/problems/binary-search)
 #[path = "704.binary-search.rs"]
 pub mod p704;
