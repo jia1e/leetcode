@@ -50,6 +50,10 @@ pub mod p283;
 #[path = "704.binary-search.rs"]
 pub mod p704;
 
+/// [backspace-string-compare](https://leetcode.com/problems/backspace-string-compare)
+#[path = "844.backspace-string-compare.rs"]
+pub mod p844;
+
 /// [sort-an-array](https://leetcode.com/problems/sort-an-array)
 #[path = "912.sort-an-array.rs"]
 pub mod p912;
