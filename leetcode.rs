@@ -57,3 +57,7 @@ pub mod p844;
 /// [sort-an-array](https://leetcode.com/problems/sort-an-array)
 #[path = "912.sort-an-array.rs"]
 pub mod p912;
+
+/// [squares-of-a-sorted-array](https://leetcode.com/problems/squares-of-a-sorted-array)
+#[path = "977.squares-of-a-sorted-array.rs"]
+pub mod p977;
