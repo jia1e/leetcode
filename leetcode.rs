@@ -42,6 +42,10 @@ pub mod p35;
 #[path = "278.first-bad-version.rs"]
 pub mod p278;
 
+/// [move-zeroes](https://leetcode.com/problems/move-zeroes)
+#[path = "283.move-zeroes.rs"]
+pub mod p283;
+
 /// [binary-search](https://leetcode.com/problems/binary-search)
 #[path = "704.binary-search.rs"]
 pub mod p704;
