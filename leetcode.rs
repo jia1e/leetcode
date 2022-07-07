@@ -14,6 +14,10 @@ pub mod p9;
 #[path = "13.roman-to-integer.rs"]
 pub mod p13;
 
+/// [remove-duplicates-from-sorted-array](https://leetcode.com/problems/remove-duplicates-from-sorted-array)
+#[path = "26.remove-duplicates-from-sorted-array.rs"]
+pub mod p26;
+
 /// [remove-element](https://leetcode.com/problems/remove-element)
 #[path = "27.remove-element.rs"]
 pub mod p27;
