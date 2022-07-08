@@ -47,32 +47,19 @@ pub struct Solution;
 
 #[test]
 fn test() {
-    assert_eq!(Solution::length_of_longest_substring("".to_string()), 0);
-    assert_eq!(
-        Solution::length_of_longest_substring("tmmzuxt".to_string()),
-        5
-    );
+    let cases = [
+        ("", 0),
+        ("tmmzuxt", 5),
+        ("aab", 2),
+        ("au", 2),
+        (" ", 1),
+        ("bbbbbb", 1),
+        ("abcabcbb", 3),
+        ("pwwkew", 3),
+        ("abcdabcdef", 6),
+    ];
 
-    assert_eq!(Solution::length_of_longest_substring("aab".to_string()), 2);
-    assert_eq!(Solution::length_of_longest_substring("au".to_string()), 2);
-    assert_eq!(Solution::length_of_longest_substring(" ".to_string()), 1);
-
-    assert_eq!(
-        Solution::length_of_longest_substring("bbbbbb".to_string()),
-        1
-    );
-
-    assert_eq!(
-        Solution::length_of_longest_substring("abcabcbb".to_string()),
-        3
-    );
-
-    assert_eq!(
-        Solution::length_of_longest_substring("pwwkew".to_string()),
-        3
-    );
-    assert_eq!(
-        Solution::length_of_longest_substring("abcdabcdef".to_string()),
-        6
-    );
+    for (s, len) in cases {
+        assert_eq!(Solution::length_of_longest_substring(s.to_string()), len);
+    }
 }
