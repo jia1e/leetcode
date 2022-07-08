@@ -7,27 +7,28 @@
 // @lc code=start
 impl Solution {
     pub fn min_sub_array_len(target: i32, nums: Vec<i32>) -> i32 {
-        let (mut left, mut right) = (0, 1);
+        let mut start = 0;
         let mut min = i32::MAX;
         let mut sum = 0;
         let mut found = false;
-        for index in 0..nums.len() {
-            if nums[index] >= target {
+
+        for stop in 0..nums.len() {
+            if nums[stop] >= target {
                 return 1;
             }
 
-            sum += nums[index];
+            sum += nums[stop];
 
             if sum >= target {
                 while sum >= target {
-                    sum -= nums[left];
-                    left += 1;
+                    sum -= nums[start];
+                    start += 1;
                 }
-                min = i32::min(min, (right - left + 1) as i32);
+                min = i32::min(min, (stop - start + 2) as i32);
                 found = true;
             }
-            right += 1;
         }
+
         if found {
             min
         } else {
@@ -42,6 +43,7 @@ pub struct Solution;
 #[test]
 fn test() {
     let cases = [
+        (7, vec![3, 4], 2),
         (7, vec![2, 3, 1, 2, 4, 3], 2),
         (1, vec![1, 4, 4], 1),
         (11, vec![1, 1, 1, 1, 1, 1, 1, 1], 0),
