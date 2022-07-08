@@ -38,6 +38,10 @@ pub mod p34;
 #[path = "35.search-insert-position.rs"]
 pub mod p35;
 
+/// [spiral-matrix-ii](https://leetcode.com/problems/spiral-matrix-ii)
+#[path = "59.spiral-matrix-ii.rs"]
+pub mod p59;
+
 /// [minimum-size-subarray-sum](https://leetcode.com/problems/minimum-size-subarray-sum)
 #[path = "209.minimum-size-subarray-sum.rs"]
 pub mod p209;
