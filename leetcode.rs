@@ -38,6 +38,10 @@ pub mod p34;
 #[path = "35.search-insert-position.rs"]
 pub mod p35;
 
+/// [spiral-matrix](https://leetcode.com/problems/spiral-matrix)
+#[path = "54.spiral-matrix.rs"]
+pub mod p54;
+
 /// [spiral-matrix-ii](https://leetcode.com/problems/spiral-matrix-ii)
 #[path = "59.spiral-matrix-ii.rs"]
 pub mod p59;
