@@ -38,6 +38,10 @@ pub mod p34;
 #[path = "35.search-insert-position.rs"]
 pub mod p35;
 
+/// [minimum-size-subarray-sum](https://leetcode.com/problems/minimum-size-subarray-sum)
+#[path = "209.minimum-size-subarray-sum.rs"]
+pub mod p209;
+
 /// [first-bad-version](https://leetcode.com/problems/first-bad-version)
 #[path = "278.first-bad-version.rs"]
 pub mod p278;
