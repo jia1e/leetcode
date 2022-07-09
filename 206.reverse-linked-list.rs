@@ -42,10 +42,11 @@ impl Solution {
 
 pub struct Solution;
 
-use crate::p203::ListNode;
+use crate::common::list::ListNode;
 
 #[test]
 fn test() {
+    use crate::common::list::{from_iter, into_vec};
     let cases = [
         vec![],
         vec![1],
@@ -58,7 +59,7 @@ fn test() {
     for input in cases {
         let mut expected = input.clone();
         expected.reverse();
-        let output = Solution::reverse_list(ListNode::from_iter(input));
-        assert_eq!(ListNode::into_vec(output), expected);
+        let output = Solution::reverse_list(from_iter(input));
+        assert_eq!(into_vec(output), expected);
     }
 }

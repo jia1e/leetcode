@@ -1,3 +1,5 @@
+mod common;
+
 /// [longest-substring-without-repeating-characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)
 #[path = "3.longest-substring-without-repeating-characters.rs"]
 pub mod p3;
@@ -13,6 +15,10 @@ pub mod p9;
 /// [roman-to-integer](https://leetcode.com/problems/roman-to-integer)
 #[path = "13.roman-to-integer.rs"]
 pub mod p13;
+
+/// [swap-nodes-in-pairs](https://leetcode.com/problems/swap-nodes-in-pairs)
+#[path = "24.swap-nodes-in-pairs.rs"]
+pub mod p24;
 
 /// [remove-duplicates-from-sorted-array](https://leetcode.com/problems/remove-duplicates-from-sorted-array)
 #[path = "26.remove-duplicates-from-sorted-array.rs"]
