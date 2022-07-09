@@ -8,6 +8,29 @@
 use std::collections::HashMap;
 impl Solution {
     pub fn is_anagram(s: String, t: String) -> bool {
+        if s.len() != t.len() {
+            return false;
+        }
+
+        let mut counters = [0; 26];
+        let base = b'a';
+
+        for byte in s.bytes() {
+            counters[(byte - base) as usize] += 1;
+        }
+
+        for byte in t.bytes() {
+            if counters[(byte - base) as usize] == 0 {
+                return false;
+            }
+
+            counters[(byte - base) as usize] -= 1;
+        }
+
+        counters.iter().all(|a| *a == 0)
+    }
+
+    pub fn is_anagram_2(s: String, t: String) -> bool {
         let mut letters = HashMap::new();
 
         for ch in s.chars() {
