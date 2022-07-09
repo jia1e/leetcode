@@ -50,6 +50,10 @@ pub mod p59;
 #[path = "203.remove-linked-list-elements.rs"]
 pub mod p203;
 
+/// [reverse-linked-list](https://leetcode.com/problems/reverse-linked-list)
+#[path = "206.reverse-linked-list.rs"]
+pub mod p206;
+
 /// [minimum-size-subarray-sum](https://leetcode.com/problems/minimum-size-subarray-sum)
 #[path = "209.minimum-size-subarray-sum.rs"]
 pub mod p209;
