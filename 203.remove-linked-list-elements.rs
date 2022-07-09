@@ -46,32 +46,32 @@ pub struct ListNode {
 
 impl ListNode {
     #[inline]
-    fn new(val: i32) -> Self {
+    pub fn new(val: i32) -> Self {
         ListNode { next: None, val }
+    }
+
+    pub fn from_iter<T: IntoIterator<Item = i32>>(iter: T) -> Option<Box<ListNode>> {
+        let mut dummy_head = ListNode::new(0);
+        let mut pre = &mut dummy_head;
+        for val in iter {
+            pre.next = Some(Box::new(ListNode::new(val)));
+            pre = pre.next.as_mut().unwrap();
+        }
+        dummy_head.next
+    }
+
+    pub fn into_vec(head: Option<Box<ListNode>>) -> Vec<i32> {
+        let mut result = vec![];
+        let mut node = &head;
+        while node.is_some() {
+            result.push(node.as_ref().unwrap().val);
+            node = &node.as_ref().unwrap().next
+        }
+        result
     }
 }
 
 pub struct Solution;
-
-fn from_iter<T: IntoIterator<Item = i32>>(iter: T) -> Option<Box<ListNode>> {
-    let mut dummy_head = ListNode::new(0);
-    let mut pre = &mut dummy_head;
-    for val in iter {
-        pre.next = Some(Box::new(ListNode::new(val)));
-        pre = pre.next.as_mut().unwrap();
-    }
-    dummy_head.next
-}
-
-fn into_vec(head: Option<Box<ListNode>>) -> Vec<i32> {
-    let mut result = vec![];
-    let mut node = &head;
-    while node.is_some() {
-        result.push(node.as_ref().unwrap().val);
-        node = &node.as_ref().unwrap().next
-    }
-    result
-}
 
 #[test]
 fn test() {
@@ -84,7 +84,7 @@ fn test() {
 
     for (nums, val, output) in cases {
         assert_eq!(
-            into_vec(Solution::remove_elements(from_iter(nums), val)),
+            ListNode::into_vec(Solution::remove_elements(ListNode::from_iter(nums), val)),
             output
         )
     }
