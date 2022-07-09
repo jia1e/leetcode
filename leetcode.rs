@@ -70,6 +70,10 @@ pub mod p283;
 #[path = "704.binary-search.rs"]
 pub mod p704;
 
+/// [design-linked-list](https://leetcode.com/problems/design-linked-list)
+#[path = "707.design-linked-list.rs"]
+pub mod p707;
+
 /// [backspace-string-compare](https://leetcode.com/problems/backspace-string-compare)
 #[path = "844.backspace-string-compare.rs"]
 pub mod p844;
