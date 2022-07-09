@@ -64,6 +64,10 @@ pub mod p206;
 #[path = "209.minimum-size-subarray-sum.rs"]
 pub mod p209;
 
+/// [valid-anagram](https://leetcode.com/problems/valid-anagram)
+#[path = "242.valid-anagram.rs"]
+pub mod p242;
+
 /// [first-bad-version](https://leetcode.com/problems/first-bad-version)
 #[path = "278.first-bad-version.rs"]
 pub mod p278;
