@@ -76,6 +76,10 @@ pub mod p278;
 #[path = "283.move-zeroes.rs"]
 pub mod p283;
 
+/// [intersection-of-two-arrays](https://leetcode.com/problems/intersection-of-two-arrays)
+#[path = "349.intersection-of-two-arrays.rs"]
+pub mod p349;
+
 /// [binary-search](https://leetcode.com/problems/binary-search)
 #[path = "704.binary-search.rs"]
 pub mod p704;
