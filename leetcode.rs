@@ -52,6 +52,10 @@ pub mod p54;
 #[path = "59.spiral-matrix-ii.rs"]
 pub mod p59;
 
+/// [happy-number](https://leetcode.com/problems/happy-number)
+#[path = "202.happy-number.rs"]
+pub mod p202;
+
 /// [remove-linked-list-elements](https://leetcode.com/problems/remove-linked-list-elements)
 #[path = "203.remove-linked-list-elements.rs"]
 pub mod p203;
