@@ -1,5 +1,9 @@
 mod common;
 
+/// [two-sum](https://leetcode.com/problems/two-sum)
+#[path = "1.two-sum.rs"]
+pub mod p1;
+
 /// [longest-substring-without-repeating-characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)
 #[path = "3.longest-substring-without-repeating-characters.rs"]
 pub mod p3;

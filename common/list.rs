@@ -12,6 +12,7 @@ impl ListNode {
     }
 }
 
+#[allow(dead_code)]
 pub fn from_iter<T: IntoIterator<Item = i32>>(iter: T) -> Option<Box<ListNode>> {
     let mut dummy_head = ListNode::new(0);
     let mut pre = &mut dummy_head;
@@ -22,6 +23,7 @@ pub fn from_iter<T: IntoIterator<Item = i32>>(iter: T) -> Option<Box<ListNode>> 
     dummy_head.next
 }
 
+#[allow(dead_code)]
 pub fn into_vec(head: Option<Box<ListNode>>) -> Vec<i32> {
     let mut result = vec![];
     let mut node = &head;
