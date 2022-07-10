@@ -20,6 +20,10 @@ pub mod p9;
 #[path = "13.roman-to-integer.rs"]
 pub mod p13;
 
+/// [3-sum](https://leetcode.com/problems/3-sum)
+#[path = "15.3-sum.rs"]
+pub mod p15;
+
 /// [swap-nodes-in-pairs](https://leetcode.com/problems/swap-nodes-in-pairs)
 #[path = "24.swap-nodes-in-pairs.rs"]
 pub mod p24;
