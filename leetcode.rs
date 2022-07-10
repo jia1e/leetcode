@@ -88,6 +88,10 @@ pub mod p278;
 #[path = "283.move-zeroes.rs"]
 pub mod p283;
 
+/// [reverse-string](https://leetcode.com/problems/reverse-string)
+#[path = "344.reverse-string.rs"]
+pub mod p344;
+
 /// [intersection-of-two-arrays](https://leetcode.com/problems/intersection-of-two-arrays)
 #[path = "349.intersection-of-two-arrays.rs"]
 pub mod p349;
