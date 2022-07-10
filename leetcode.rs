@@ -88,6 +88,10 @@ pub mod p283;
 #[path = "349.intersection-of-two-arrays.rs"]
 pub mod p349;
 
+/// [ransom-note](https://leetcode.com/problems/ransom-note)
+#[path = "383.ransom-note.rs"]
+pub mod p383;
+
 /// [binary-search](https://leetcode.com/problems/binary-search)
 #[path = "704.binary-search.rs"]
 pub mod p704;
