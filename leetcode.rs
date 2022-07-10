@@ -100,6 +100,10 @@ pub mod p349;
 #[path = "383.ransom-note.rs"]
 pub mod p383;
 
+/// [reverse-string-ii](https://leetcode.com/problems/reverse-string-ii)
+#[path = "541.reverse-string-ii.rs"]
+pub mod p541;
+
 /// [binary-search](https://leetcode.com/problems/binary-search)
 #[path = "704.binary-search.rs"]
 pub mod p704;
