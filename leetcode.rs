@@ -60,6 +60,10 @@ pub mod p54;
 #[path = "59.spiral-matrix-ii.rs"]
 pub mod p59;
 
+/// [reverse-words-in-a-string](https://leetcode.com/problems/reverse-words-in-a-string)
+#[path = "151.reverse-words-in-a-string.rs"]
+pub mod p151;
+
 /// [happy-number](https://leetcode.com/problems/happy-number)
 #[path = "202.happy-number.rs"]
 pub mod p202;
