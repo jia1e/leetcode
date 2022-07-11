@@ -84,6 +84,10 @@ pub mod p206;
 #[path = "209.minimum-size-subarray-sum.rs"]
 pub mod p209;
 
+/// [implement-stack-using-queues](https://leetcode.com/problems/implement-stack-using-queues)
+#[path = "225.implement-stack-using-queues.rs"]
+pub mod p225;
+
 /// [implement-queue-using-stacks](https://leetcode.com/problems/implement-queue-using-stacks)
 #[path = "232.implement-queue-using-stacks.rs"]
 pub mod p232;
