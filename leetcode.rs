@@ -24,6 +24,10 @@ pub mod p13;
 #[path = "15.3-sum.rs"]
 pub mod p15;
 
+/// [valid-parentheses](https://leetcode.com/problems/valid-parentheses)
+#[path = "20.valid-parentheses.rs"]
+pub mod p20;
+
 /// [swap-nodes-in-pairs](https://leetcode.com/problems/swap-nodes-in-pairs)
 #[path = "24.swap-nodes-in-pairs.rs"]
 pub mod p24;
