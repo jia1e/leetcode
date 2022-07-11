@@ -36,6 +36,10 @@ pub mod p26;
 #[path = "27.remove-element.rs"]
 pub mod p27;
 
+/// [implement-str-str](https://leetcode.com/problems/implement-str-str)
+#[path = "28.implement-str-str.rs"]
+pub mod p28;
+
 /// [divide-two-integers](https://leetcode.com/problems/divide-two-integers)
 #[path = "29.divide-two-integers.rs"]
 pub mod p29;
