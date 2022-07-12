@@ -37,6 +37,19 @@ impl Solution {
     pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         Self::reverse_node(head, None)
     }
+
+    pub fn reverse_list_2(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        let mut head = head;
+        let mut tail: Option<Box<ListNode>> = None;
+
+        while let Some(mut node) = head {
+            let next_head = std::mem::replace(&mut node.next, tail);
+            tail = Some(node);
+            head = next_head
+        }
+
+        tail
+    }
 }
 // @lc code=end
 
@@ -59,7 +72,7 @@ fn test() {
     for input in cases {
         let mut expected = input.clone();
         expected.reverse();
-        let output = Solution::reverse_list(from_iter(input));
+        let output = Solution::reverse_list_2(from_iter(input));
         assert_eq!(into_vec(output), expected);
     }
 }
