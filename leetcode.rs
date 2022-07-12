@@ -28,6 +28,10 @@ pub mod p14;
 #[path = "15.3-sum.rs"]
 pub mod p15;
 
+/// [remove-nth-node-from-end-of-list](https://leetcode.com/problems/remove-nth-node-from-end-of-list)
+#[path = "19.remove-nth-node-from-end-of-list.rs"]
+pub mod p19;
+
 /// [valid-parentheses](https://leetcode.com/problems/valid-parentheses)
 #[path = "20.valid-parentheses.rs"]
 pub mod p20;
