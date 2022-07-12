@@ -68,6 +68,10 @@ pub mod p54;
 #[path = "59.spiral-matrix-ii.rs"]
 pub mod p59;
 
+/// [evaluate-reverse-polish-notation](https://leetcode.com/problems/evaluate-reverse-polish-notation)
+#[path = "150.evaluate-reverse-polish-notation.rs"]
+pub mod p150;
+
 /// [reverse-words-in-a-string](https://leetcode.com/problems/reverse-words-in-a-string)
 #[path = "151.reverse-words-in-a-string.rs"]
 pub mod p151;
