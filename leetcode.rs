@@ -143,3 +143,7 @@ pub mod p912;
 /// [squares-of-a-sorted-array](https://leetcode.com/problems/squares-of-a-sorted-array)
 #[path = "977.squares-of-a-sorted-array.rs"]
 pub mod p977;
+
+/// [remove-all-adjacent-duplicates-in-string](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string)
+#[path = "1047.remove-all-adjacent-duplicates-in-string.rs"]
+pub mod p1047;
