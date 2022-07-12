@@ -124,6 +124,10 @@ pub mod p283;
 #[path = "344.reverse-string.rs"]
 pub mod p344;
 
+/// [top-k-frequent-elements](https://leetcode.com/problems/top-k-frequent-elements)
+#[path = "347.top-k-frequent-elements.rs"]
+pub mod p347;
+
 /// [intersection-of-two-arrays](https://leetcode.com/problems/intersection-of-two-arrays)
 #[path = "349.intersection-of-two-arrays.rs"]
 pub mod p349;
