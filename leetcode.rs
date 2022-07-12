@@ -20,6 +20,10 @@ pub mod p9;
 #[path = "13.roman-to-integer.rs"]
 pub mod p13;
 
+/// [longest-common-prefix](https://leetcode.com/problems/longest-common-prefix)
+#[path = "14.longest-common-prefix.rs"]
+pub mod p14;
+
 /// [3-sum](https://leetcode.com/problems/3-sum)
 #[path = "15.3-sum.rs"]
 pub mod p15;
