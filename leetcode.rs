@@ -76,6 +76,10 @@ pub mod p54;
 #[path = "59.spiral-matrix-ii.rs"]
 pub mod p59;
 
+/// [binary-tree-inorder-traversal](https://leetcode.com/problems/binary-tree-inorder-traversal)
+#[path = "94.binary-tree-inorder-traversal.rs"]
+pub mod p94;
+
 /// [binary-tree-preorder-traversal](https://leetcode.com/problems/binary-tree-preorder-traversal)
 #[path = "144.binary-tree-preorder-traversal.rs"]
 pub mod p144;
