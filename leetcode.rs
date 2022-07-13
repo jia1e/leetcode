@@ -80,6 +80,10 @@ pub mod p59;
 #[path = "144.binary-tree-preorder-traversal.rs"]
 pub mod p144;
 
+/// [binary-tree-postorder-traversal](https://leetcode.com/problems/binary-tree-postorder-traversal)
+#[path = "145.binary-tree-postorder-traversal.rs"]
+pub mod p145;
+
 /// [evaluate-reverse-polish-notation](https://leetcode.com/problems/evaluate-reverse-polish-notation)
 #[path = "150.evaluate-reverse-polish-notation.rs"]
 pub mod p150;
