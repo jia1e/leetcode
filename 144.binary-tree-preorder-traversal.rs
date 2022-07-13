@@ -39,6 +39,21 @@ impl Solution {
             Self::traversal(node.borrow_mut().right.take(), elements);
         }
     }
+
+    pub fn preorder_traversal_2(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
+        let mut elements = vec![];
+        let mut nodes = vec![root];
+
+        while !nodes.is_empty() {
+            if let Some(node) = nodes.pop().unwrap() {
+                elements.push(node.borrow().val);
+                nodes.push(node.borrow_mut().right.take());
+                nodes.push(node.borrow_mut().left.take());
+            }
+        }
+
+        elements
+    }
 }
 // @lc code=end
 
@@ -69,8 +84,12 @@ fn test() {
     ];
 
     for (input, expected) in cases {
-        let root = from_iter(input);
+        let root = from_iter(input.clone());
         let output = Solution::preorder_traversal(root);
+        assert_eq!(output, expected);
+
+        let root = from_iter(input);
+        let output = Solution::preorder_traversal_2(root);
         assert_eq!(output, expected);
     }
 }
