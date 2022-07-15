@@ -48,30 +48,15 @@ use crate::common::binary_tree::TreeNode;
 
 #[test]
 fn test() {
-    use crate::common::binary_tree::from_iter;
+    use crate::binary_tree;
+
     let cases = [
-        (
-            vec![Some(1), None, Some(2), None, None, Some(3), None],
-            vec![3, 2, 1],
-        ),
-        (vec![Some(3), Some(1), Some(2)], vec![1, 2, 3]),
-        (
-            vec![
-                Some(1),
-                Some(2),
-                Some(3),
-                Some(4),
-                Some(5),
-                Some(6),
-                Some(7),
-            ],
-            vec![4, 5, 2, 6, 7, 3, 1],
-        ),
+        (binary_tree!(1, null, 2, 3), vec![3, 2, 1]),
+        (binary_tree!(3, 1, 2), vec![1, 2, 3]),
+        (binary_tree!(1, 2, 3, 4, 5, 6, 7), vec![4, 5, 2, 6, 7, 3, 1]),
     ];
 
     for (input, expected) in cases {
-        let root = from_iter(input);
-        let output = Solution::postorder_traversal(root);
-        assert_eq!(output, expected);
+        assert_eq!(Solution::postorder_traversal(input), expected);
     }
 }

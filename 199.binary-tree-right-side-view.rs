@@ -89,15 +89,11 @@ use crate::common::binary_tree::TreeNode;
 
 #[test]
 fn test() {
-    use crate::common::binary_tree::from_iter;
+    use crate::binary_tree;
 
-    let cases = [(
-        vec![Some(1), Some(2), Some(3), None, Some(5), None, Some(4)],
-        vec![1, 3, 4],
-    )];
+    let cases = [(binary_tree!(1, 2, 3, null, 5, null, 4), vec![1, 3, 4])];
 
     for (input, expected) in cases {
-        let root = from_iter(input);
-        assert_eq!(Solution::right_side_view(root), expected);
+        assert_eq!(Solution::right_side_view(input), expected);
     }
 }

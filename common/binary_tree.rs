@@ -1,4 +1,8 @@
-use std::{cell::RefCell, rc::Rc};
+use std::{
+    cell::RefCell,
+    collections::{HashSet, VecDeque},
+    rc::Rc,
+};
 
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
@@ -22,14 +26,28 @@ impl TreeNode {
 
 #[allow(dead_code)]
 pub fn from_iter<T: IntoIterator<Item = Option<i32>>>(iter: T) -> Option<Rc<RefCell<TreeNode>>> {
-    let mut nodes = vec![];
+    let mut items: VecDeque<_> = iter.into_iter().collect();
 
-    for item in iter {
-        if let Some(val) = item {
-            nodes.push(Some(Rc::new(RefCell::new(TreeNode::new(val)))));
+    let mut nodes = vec![];
+    let mut none_nodes = HashSet::new();
+    let mut index = 0_usize;
+
+    while !items.is_empty() {
+        if none_nodes.contains(&index) {
+            nodes.push(None);
+            none_nodes.insert(2 * index + 1);
+            none_nodes.insert(2 * index + 2);
         } else {
-            nodes.push(None)
+            let item = items.pop_front().unwrap();
+            if item.is_none() {
+                nodes.push(None);
+                none_nodes.insert(2 * index + 1);
+                none_nodes.insert(2 * index + 2);
+            } else {
+                nodes.push(Some(Rc::new(RefCell::new(TreeNode::new(item.unwrap())))));
+            }
         }
+        index += 1;
     }
 
     let mut index = nodes.len() - 1;
@@ -55,25 +73,39 @@ pub fn from_iter<T: IntoIterator<Item = Option<i32>>>(iter: T) -> Option<Rc<RefC
     None
 }
 
-#[allow(dead_code)]
-pub fn to_vec(tree: Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<i32>> {
-    let mut v = vec![];
-    let mut node = tree;
-    let mut layer = 0;
+#[macro_export]
+macro_rules! optional {
+    (null) => {
+        None
+    };
+    ($x:expr) => {
+        Some($x)
+    };
+}
 
-    v
+#[macro_export]
+macro_rules! binary_tree {
+    () => {
+        None
+    };
+    ( $( $x:tt ),* ) => {
+        {
+            let mut temp_vec = Vec::new();
+            $(
+                temp_vec.push($crate::optional!($x));
+            )*
+            $crate::common::binary_tree::from_iter(temp_vec)
+        }
+    };
 }
 
 #[test]
 fn test() {
-    let tree = from_iter([
-        Some(0),
-        Some(1),
-        Some(2),
-        Some(3),
-        Some(4),
-        Some(5),
-        Some(6),
-    ]);
-    println!("{:#?}", tree);
+    let tree1 = from_iter([Some(0), None, Some(2), Some(3), Some(4), Some(5), Some(6)]);
+    let tree2 = binary_tree![0, null, 2, 3, 4, 5, 6];
+    assert_eq!(tree1, tree2);
+
+    let tree3 = binary_tree!(1, null, 2, 3);
+    assert_eq!(tree3.as_ref().unwrap().borrow().val, 1);
+    assert_eq!(tree3.as_ref().unwrap().borrow().left, None);
 }

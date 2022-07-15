@@ -95,17 +95,22 @@ use crate::common::binary_tree::TreeNode;
 
 #[test]
 fn test() {
-    use crate::common::binary_tree::from_iter;
+    use crate::binary_tree;
     let cases = [(
-        vec![Some(3), Some(9), Some(20), None, None, Some(15), Some(7)],
+        binary_tree!(3, 9, 20, null, null, 15, 7),
         vec![vec![3], vec![9, 20], vec![15, 7]],
     )];
 
     for (input, expected) in cases {
-        let root = from_iter(input.clone());
-        assert_eq!(Solution::level_order(root), expected);
+        assert_eq!(Solution::level_order(input), expected);
+    }
 
-        let root = from_iter(input.clone());
-        assert_eq!(Solution::level_order_2(root), expected);
+    let cases = [(
+        binary_tree!(3, 9, 20, null, null, 15, 7),
+        vec![vec![3], vec![9, 20], vec![15, 7]],
+    )];
+
+    for (input, expected) in cases {
+        assert_eq!(Solution::level_order_2(input), expected);
     }
 }

@@ -99,39 +99,16 @@ impl Solution {
 
 #[test]
 fn test() {
-    use crate::common::binary_tree::from_iter;
+    use crate::binary_tree;
+
     let cases = [
-        (
-            vec![Some(1), None, Some(2), None, None, Some(3), None],
-            vec![1, 3, 2],
-        ),
-        (
-            vec![
-                Some(1),
-                Some(2),
-                Some(3),
-                Some(4),
-                Some(5),
-                Some(6),
-                Some(7),
-            ],
-            vec![4, 2, 5, 1, 6, 3, 7],
-        ),
-        (vec![Some(2), Some(3), None, Some(1)], vec![1, 3, 2]),
-        (vec![Some(1), Some(4), Some(3), Some(2)], vec![2, 4, 1, 3]),
+        (binary_tree!(3, 1, 2), vec![1, 3, 2]),
+        (binary_tree!(1, 2, 3, 4, 5, 6, 7), vec![4, 2, 5, 1, 6, 3, 7]),
+        (binary_tree!(2, 3, null, 1), vec![1, 3, 2]),
+        (binary_tree!(1, 4, 3, 2), vec![2, 4, 1, 3]),
     ];
 
     for (input, expected) in cases {
-        let root = from_iter(input.clone());
-        let output = Solution::inorder_traversal(root);
-        assert_eq!(output, expected);
-
-        let root = from_iter(input.clone());
-        let output = Solution::inorder_traversal_2(root);
-        assert_eq!(output, expected);
-
-        let root = from_iter(input.clone());
-        let output = Solution::inorder_traversal_3(root);
-        assert_eq!(output, expected);
+        assert_eq!(Solution::inorder_traversal(input), expected);
     }
 }

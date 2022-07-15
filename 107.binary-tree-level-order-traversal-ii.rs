@@ -75,14 +75,13 @@ use crate::common::binary_tree::TreeNode;
 
 #[test]
 fn test() {
-    use crate::common::binary_tree::from_iter;
+    use crate::binary_tree;
     let cases = [(
-        vec![Some(3), Some(9), Some(20), None, None, Some(15), Some(7)],
+        binary_tree!(3, 9, 20, null, null, 15, 7),
         vec![vec![15, 7], vec![9, 20], vec![3]],
     )];
 
     for (input, expected) in cases {
-        let root = from_iter(input.clone());
-        assert_eq!(Solution::level_order_bottom(root), expected);
+        assert_eq!(Solution::level_order_bottom(input), expected);
     }
 }
