@@ -84,6 +84,10 @@ pub mod p94;
 #[path = "102.binary-tree-level-order-traversal.rs"]
 pub mod p102;
 
+/// [maximum-depth-of-binary-tree](https://leetcode.com/problems/maximum-depth-of-binary-tree)
+#[path = "104.maximum-depth-of-binary-tree.rs"]
+pub mod p104;
+
 /// [binary-tree-level-order-traversal-ii](https://leetcode.com/problems/binary-tree-level-order-traversal-ii)
 #[path = "107.binary-tree-level-order-traversal-ii.rs"]
 pub mod p107;
