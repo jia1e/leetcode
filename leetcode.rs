@@ -160,6 +160,10 @@ pub mod p349;
 #[path = "383.ransom-note.rs"]
 pub mod p383;
 
+/// [find-largest-value-in-each-tree-row](https://leetcode.com/problems/find-largest-value-in-each-tree-row)
+#[path = "515.find-largest-value-in-each-tree-row.rs"]
+pub mod p515;
+
 /// [reverse-string-ii](https://leetcode.com/problems/reverse-string-ii)
 #[path = "541.reverse-string-ii.rs"]
 pub mod p541;
