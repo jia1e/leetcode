@@ -136,6 +136,10 @@ pub mod p209;
 #[path = "225.implement-stack-using-queues.rs"]
 pub mod p225;
 
+/// [invert-binary-tree](https://leetcode.com/problems/invert-binary-tree)
+#[path = "226.invert-binary-tree.rs"]
+pub mod p226;
+
 /// [implement-queue-using-stacks](https://leetcode.com/problems/implement-queue-using-stacks)
 #[path = "232.implement-queue-using-stacks.rs"]
 pub mod p232;
