@@ -104,6 +104,10 @@ pub mod p150;
 #[path = "151.reverse-words-in-a-string.rs"]
 pub mod p151;
 
+/// [binary-tree-right-side-view](https://leetcode.com/problems/binary-tree-right-side-view)
+#[path = "199.binary-tree-right-side-view.rs"]
+pub mod p199;
+
 /// [happy-number](https://leetcode.com/problems/happy-number)
 #[path = "202.happy-number.rs"]
 pub mod p202;
