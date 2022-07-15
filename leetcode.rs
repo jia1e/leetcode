@@ -164,6 +164,10 @@ pub mod p383;
 #[path = "541.reverse-string-ii.rs"]
 pub mod p541;
 
+/// [average-of-levels-in-binary-tree](https://leetcode.com/problems/average-of-levels-in-binary-tree)
+#[path = "637.average-of-levels-in-binary-tree.rs"]
+pub mod p637;
+
 /// [binary-search](https://leetcode.com/problems/binary-search)
 #[path = "704.binary-search.rs"]
 pub mod p704;
