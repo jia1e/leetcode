@@ -57,6 +57,16 @@ impl Solution {
 
         depth
     }
+
+    pub fn max_depth_2(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        if root == None {
+            0
+        } else {
+            let mut node = root.as_ref().unwrap().borrow_mut();
+
+            1 + Self::max_depth_2(node.left.take()).max(Self::max_depth_2(node.right.take()))
+        }
+    }
 }
 // @lc code=end
 
@@ -76,5 +86,17 @@ fn test() {
 
     for (input, expected) in cases {
         assert_eq!(Solution::max_depth(input), expected);
+    }
+
+    let cases = [
+        (binary_tree!(3, 9, 20, null, null, 15, 7), 3),
+        (binary_tree!(), 0),
+        (binary_tree!(1), 1),
+        (binary_tree!(1, 2), 2),
+        (binary_tree!(1, 2, 3), 2),
+    ];
+
+    for (input, expected) in cases {
+        assert_eq!(Solution::max_depth_2(input), expected);
     }
 }
