@@ -43,6 +43,17 @@ impl Solution {
             Self::invert(&mut node.right);
         }
     }
+
+    pub fn invert_tree_2(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
+        if root.is_some() {
+            let mut node = root.as_ref().unwrap().borrow_mut();
+            let (left, right) = (node.left.take(), node.right.take());
+            node.left = Self::invert_tree_2(right);
+            node.right = Self::invert_tree_2(left);
+        }
+
+        root
+    }
 }
 // @lc code=end
 
@@ -60,5 +71,14 @@ fn test() {
 
     for (input, output) in cases {
         assert_eq!(Solution::invert_tree(input), output);
+    }
+
+    let cases = [(
+        binary_tree!(4, 2, 7, 1, 3, 6, 9),
+        binary_tree!(4, 7, 2, 9, 6, 3, 1),
+    )];
+
+    for (input, output) in cases {
+        assert_eq!(Solution::invert_tree_2(input), output);
     }
 }
