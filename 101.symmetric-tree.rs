@@ -33,6 +33,31 @@ impl Solution {
         }
 
         let mut node = root.as_ref().unwrap().borrow_mut();
+        Self::compare(node.left.take(), node.right.take())
+    }
+
+    fn compare(left: Option<Rc<RefCell<TreeNode>>>, right: Option<Rc<RefCell<TreeNode>>>) -> bool {
+        match (left, right) {
+            (Some(left), Some(right)) => {
+                let (mut left, mut right) = (left.borrow_mut(), right.borrow_mut());
+                if left.val != right.val {
+                    return false;
+                }
+
+                return Self::compare(left.left.take(), right.right.take())
+                    && Self::compare(left.right.take(), right.left.take());
+            }
+            (None, None) => true,
+            _ => false,
+        }
+    }
+
+    pub fn is_symmetric_2(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
+        if root.is_none() {
+            return true;
+        }
+
+        let mut node = root.as_ref().unwrap().borrow_mut();
         let (mut left_queue, mut right_queue) = (VecDeque::new(), VecDeque::new());
         left_queue.push_back(node.left.take());
         right_queue.push_back(node.right.take());
@@ -86,5 +111,14 @@ fn test() {
 
     for (root, expected) in cases {
         assert_eq!(Solution::is_symmetric(root), expected);
+    }
+
+    let cases = [
+        (binary_tree!(1, 2, 2, 3, 4, 4, 3), true),
+        (binary_tree!(1, 2, 2, null, 3, null, 3), false),
+    ];
+
+    for (root, expected) in cases {
+        assert_eq!(Solution::is_symmetric_2(root), expected);
     }
 }
