@@ -5,8 +5,9 @@ use std::{
 };
 
 fn main() {
-    let dir = current_dir().unwrap();
-    let mut files = read_dir(dir)
+    let solutions_dir = "solutions";
+    println!("cargo:rerun-if-changed={solutions_dir}");
+    let mut files = read_dir(current_dir().unwrap().join(solutions_dir))
         .unwrap()
         .filter_map(|entry| match entry {
             Ok(entry) => {
@@ -18,7 +19,6 @@ fn main() {
                             (Some(path), Some(n), Some(title)) => Some((
                                 path.as_str().to_string(),
                                 n.as_str().parse().unwrap(),
-                                // title.as_str().replace("-", "_"),
                                 title.as_str().to_string(),
                             )),
                             _ => None,
@@ -39,7 +39,7 @@ fn main() {
         .map(|(path, n, title)| {
             format!(
                 r###"/// [{title}](https://leetcode.com/problems/{title})
-#[path = "{path}"]
+#[path = "{solutions_dir}/{path}"]
 pub mod p{n};
 "###
             )
