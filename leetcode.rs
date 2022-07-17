@@ -80,6 +80,10 @@ pub mod p59;
 #[path = "94.binary-tree-inorder-traversal.rs"]
 pub mod p94;
 
+/// [symmetric-tree](https://leetcode.com/problems/symmetric-tree)
+#[path = "101.symmetric-tree.rs"]
+pub mod p101;
+
 /// [binary-tree-level-order-traversal](https://leetcode.com/problems/binary-tree-level-order-traversal)
 #[path = "102.binary-tree-level-order-traversal.rs"]
 pub mod p102;
