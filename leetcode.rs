@@ -140,6 +140,10 @@ pub mod p206;
 #[path = "209.minimum-size-subarray-sum.rs"]
 pub mod p209;
 
+/// [count-complete-tree-nodes](https://leetcode.com/problems/count-complete-tree-nodes)
+#[path = "222.count-complete-tree-nodes.rs"]
+pub mod p222;
+
 /// [implement-stack-using-queues](https://leetcode.com/problems/implement-stack-using-queues)
 #[path = "225.implement-stack-using-queues.rs"]
 pub mod p225;
