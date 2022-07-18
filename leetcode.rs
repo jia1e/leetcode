@@ -28,7 +28,7 @@ pub mod p13;
 #[path = "solutions/14.longest-common-prefix.rs"]
 pub mod p14;
 
-/// [3-sum](https://leetcode.com/problems/3-sum)
+/// [3-sum](https://leetcode.com/problems/3sum)
 #[path = "solutions/15.3-sum.rs"]
 pub mod p15;
 
