@@ -33,3 +33,32 @@ pub fn into_vec(head: Option<Box<ListNode>>) -> Vec<i32> {
     }
     result
 }
+
+#[macro_export]
+macro_rules! linked_list {
+    () => {
+        None
+    };
+    ( $( $x:expr ),* ) => {
+        {
+            use $crate::common::linked_list::ListNode;
+            let mut dummy_head = ListNode::new(0);
+            let mut _pre = &mut dummy_head;
+            $(
+                _pre.next = Some(Box::new(ListNode::new($x)));
+                _pre = _pre.next.as_mut().unwrap();
+            )*
+            dummy_head.next
+        }
+    }
+}
+
+#[cfg(test)]
+mod test {
+    #[test]
+    fn test() {
+        use super::from_iter;
+        let list = linked_list!(1, 2, 3, 4, 5);
+        assert_eq!(list, from_iter([1, 2, 3, 4, 5]));
+    }
+}

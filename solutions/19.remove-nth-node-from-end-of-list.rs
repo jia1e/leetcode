@@ -49,16 +49,14 @@ impl Solution {
 
 pub struct Solution;
 
-use crate::common::list::*;
+use crate::common::linked_list::ListNode;
 
 #[test]
 fn test() {
-    let cases = [(vec![1, 2, 3, 4, 5], 4, [1, 3, 4, 5])];
+    use crate::linked_list;
+    let cases = [(linked_list![1, 2, 3, 4, 5], 4, linked_list![1, 3, 4, 5])];
 
     for (head, n, expected) in cases {
-        assert_eq!(
-            into_vec(Solution::remove_nth_from_end(from_iter(head), n)),
-            expected
-        )
+        assert_eq!(Solution::remove_nth_from_end(head, n), expected)
     }
 }

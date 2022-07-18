@@ -63,26 +63,30 @@ impl Solution {
 
 pub struct Solution;
 
-use crate::common::list::ListNode;
+use crate::common::linked_list::ListNode;
 
 #[test]
 fn test() {
-    use crate::common::list::{from_iter, into_vec};
+    use crate::linked_list;
 
-    let cases = [vec![1, 2, 3, 4, 5, 6, 7], vec![], vec![1]];
+    let cases = [
+        (
+            linked_list!(1, 2, 3, 4, 5, 6, 7),
+            linked_list!(2, 1, 4, 3, 6, 5, 7),
+        ),
+        (
+            linked_list!(1, 2, 3, 4, 5, 6),
+            linked_list!(2, 1, 4, 3, 6, 5),
+        ),
+        (linked_list!(), linked_list!()),
+        (linked_list!(1), linked_list!(1)),
+    ];
 
-    for input in cases {
-        let mut expected = input.clone();
-        for i in 0..(expected.len() / 2) {
-            expected.swap(2 * i, 2 * i + 1);
-        }
-        let head = from_iter(input.clone());
-        assert_eq!(into_vec(Solution::swap_pairs(head)), expected);
+    for (head, expected) in cases {
+        assert_eq!(Solution::swap_pairs(head.clone()), expected);
 
-        let head = from_iter(input.clone());
-        assert_eq!(into_vec(Solution::swap_pairs_2(head)), expected);
+        assert_eq!(Solution::swap_pairs_2(head.clone()), expected);
 
-        let head = from_iter(input.clone());
-        assert_eq!(into_vec(Solution::swap_pairs_3(head)), expected);
+        assert_eq!(Solution::swap_pairs_3(head.clone()), expected);
     }
 }

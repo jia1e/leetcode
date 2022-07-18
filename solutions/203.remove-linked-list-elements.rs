@@ -37,24 +37,21 @@ impl Solution {
 }
 // @lc code=end
 
-use crate::common::list::ListNode;
+use crate::common::linked_list::ListNode;
 
 pub struct Solution;
 
 #[test]
 fn test() {
-    use crate::common::list::{from_iter, into_vec};
+    use crate::linked_list;
     let cases = [
-        (vec![], 0, vec![]),
-        (vec![1], 0, vec![1]),
-        (vec![1, 2, 3], 1, vec![2, 3]),
-        (vec![1, 2, 3, 4, 4], 4, vec![1, 2, 3]),
+        (linked_list![], 0, linked_list![]),
+        (linked_list![1], 0, linked_list![1]),
+        (linked_list![1, 2, 3], 1, linked_list![2, 3]),
+        (linked_list![1, 2, 3, 4, 4], 4, linked_list![1, 2, 3]),
     ];
 
-    for (nums, val, output) in cases {
-        assert_eq!(
-            into_vec(Solution::remove_elements(from_iter(nums), val)),
-            output
-        )
+    for (head, val, output) in cases {
+        assert_eq!(Solution::remove_elements(head, val), output)
     }
 }

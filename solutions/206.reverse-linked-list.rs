@@ -55,24 +55,25 @@ impl Solution {
 
 pub struct Solution;
 
-use crate::common::list::ListNode;
+use crate::common::linked_list::ListNode;
 
 #[test]
 fn test() {
-    use crate::common::list::{from_iter, into_vec};
+    use crate::linked_list;
     let cases = [
-        vec![],
-        vec![1],
-        vec![1, 2],
-        vec![1, 2, 3, 4, 5],
-        vec![1, 1],
-        vec![1, 2, 3, 4, 5, 0],
+        (linked_list![], linked_list![]),
+        (linked_list![1], linked_list![1]),
+        (linked_list![1, 2], linked_list![2, 1]),
+        (linked_list![1, 2, 3, 4, 5], linked_list![5, 4, 3, 2, 1]),
+        (linked_list![1, 1], linked_list![1, 1]),
+        (
+            linked_list![1, 2, 3, 4, 5, 0],
+            linked_list![0, 5, 4, 3, 2, 1],
+        ),
     ];
 
-    for input in cases {
-        let mut expected = input.clone();
-        expected.reverse();
-        let output = Solution::reverse_list_2(from_iter(input));
-        assert_eq!(into_vec(output), expected);
+    for (head, expected) in cases {
+        assert_eq!(Solution::reverse_list(head.clone()), expected);
+        assert_eq!(Solution::reverse_list_2(head.clone()), expected);
     }
 }

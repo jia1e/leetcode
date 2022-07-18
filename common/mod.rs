@@ -1,2 +1,2 @@
 pub mod binary_tree;
-pub mod list;
+pub mod linked_list;
