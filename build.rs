@@ -47,7 +47,7 @@ pub mod p{n};
         .collect();
     fs::write(
         "leetcode.rs",
-        format!("mod common;\n\n{}", segments.join("\n")),
+        format!("mod shared;\n\n{}", segments.join("\n")),
     )
     .expect("unable to generate leetcode.rs");
 }

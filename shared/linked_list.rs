@@ -41,7 +41,7 @@ macro_rules! linked_list {
     };
     ( $( $x:expr ),* ) => {
         {
-            use $crate::common::linked_list::ListNode;
+            use $crate::shared::linked_list::ListNode;
             let mut dummy_head = ListNode::new(0);
             let mut _pre = &mut dummy_head;
             $(

@@ -49,7 +49,7 @@ impl Solution {
 
 pub struct Solution;
 
-use crate::common::linked_list::ListNode;
+use crate::shared::linked_list::ListNode;
 
 #[test]
 fn test() {

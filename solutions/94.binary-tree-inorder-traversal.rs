@@ -75,7 +75,7 @@ impl Solution {
 // @lc code=end
 
 pub struct Solution;
-use crate::common::binary_tree::TreeNode;
+use crate::shared::binary_tree::TreeNode;
 
 impl Solution {
     pub fn inorder_traversal_3(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {

@@ -99,7 +99,7 @@ impl Solution {
 // @lc code=end
 
 pub struct Solution;
-use crate::common::binary_tree::TreeNode;
+use crate::shared::binary_tree::TreeNode;
 
 #[test]
 fn test() {

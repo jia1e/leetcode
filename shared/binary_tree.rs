@@ -94,7 +94,7 @@ macro_rules! binary_tree {
             $(
                 temp_vec.push($crate::optional!($x));
             )*
-            $crate::common::binary_tree::from_iter(temp_vec)
+            $crate::shared::binary_tree::from_iter(temp_vec)
         }
     };
 }

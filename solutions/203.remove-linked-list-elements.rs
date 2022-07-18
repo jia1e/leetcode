@@ -37,7 +37,7 @@ impl Solution {
 }
 // @lc code=end
 
-use crate::common::linked_list::ListNode;
+use crate::shared::linked_list::ListNode;
 
 pub struct Solution;
 

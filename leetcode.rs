@@ -1,4 +1,4 @@
-mod common;
+mod shared;
 
 /// [two-sum](https://leetcode.com/problems/two-sum)
 #[path = "solutions/1.two-sum.rs"]
