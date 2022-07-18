@@ -12,6 +12,10 @@ pub mod p3;
 #[path = "solutions/4.median-of-two-sorted-arrays.rs"]
 pub mod p4;
 
+/// [reverse-integer](https://leetcode.com/problems/reverse-integer)
+#[path = "solutions/7.reverse-integer.rs"]
+pub mod p7;
+
 /// [palindrome-number](https://leetcode.com/problems/palindrome-number)
 #[path = "solutions/9.palindrome-number.rs"]
 pub mod p9;
