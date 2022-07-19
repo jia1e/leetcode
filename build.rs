@@ -54,7 +54,7 @@ fn main() {
         .collect::<Vec<(_, i32, _, _)>>();
     files.sort_by(|(_, a, _, _), (_, b, _, _)| a.cmp(b));
 
-    let mut code = "mod shared;\n".to_string();
+    let mut code = "#[macro_use]\nmod shared;\n".to_string();
 
     files.iter().for_each(|(path, n, title, endpoint)| {
         code.push_str(
