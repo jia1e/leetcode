@@ -35,8 +35,6 @@ impl Solution {
 
         match (node.left.take(), node.right.take()) {
             (None, None) => node.val == target_sum,
-            (left, None) => Self::has_path_sum(left, target_sum - node.val),
-            (None, right) => Self::has_path_sum(right, target_sum - node.val),
             (left, right) => {
                 Self::has_path_sum(left, target_sum - node.val)
                     || Self::has_path_sum(right, target_sum - node.val)
