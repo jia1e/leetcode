@@ -8,24 +8,15 @@
 use std::collections::HashMap;
 impl Solution {
     pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        let nums_index: HashMap<&i32, usize> = nums
-            .iter()
-            .enumerate()
-            .map(|(index, num)| (num, index))
-            .collect();
-
-        for (i, n) in nums.iter().enumerate() {
-            if let Some(result) = nums_index.get(&(target - n)).and_then(|index| {
-                if index != &i {
-                    Some(vec![i as i32, *index as i32])
-                } else {
-                    None
+        let mut nums_index = HashMap::new();
+        for (i, &n) in nums.iter().enumerate() {
+            match nums_index.get(&(target - n)) {
+                Some(&j) => return vec![j as i32, i as i32],
+                None => {
+                    nums_index.insert(n, i);
                 }
-            }) {
-                return result;
             }
         }
-
         vec![-1, -1]
     }
 }
@@ -36,7 +27,7 @@ pub struct Solution;
 #[test]
 fn test() {
     let cases = [
-        (vec![1, 2, 3, 4, 5], 6, vec![0, 4]),
+        (vec![1, 2, 3, 4, 5], 6, vec![1,3]),
         (vec![3, 2, 4], 6, vec![1, 2]),
     ];
 
